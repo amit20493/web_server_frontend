@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './components/Home/Home';
+// import Team from './components/Navbar/Team';
+import MyNavbar from './components/Navbar/NavBar/MyNavBar.js';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Research from './components/Research/Research';
+// import Publication from './components/Publication/Publication';
+// import { Contact } from './components/Contact/Contact';
+// import { Teaching } from './components/Teaching/Teaching';
+import Footer from './components/Footer';
+// import PublicationList from './components/Publication/OtherPublication';
+// import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <MyNavbar />
+      <Routes>
+        <Route path="/" element={<Home />} activeClassName="active" />
+        {/* <Route path="/team" element={<Team />} activeClassName="active"/>
+        <Route path="/research" element={<Research />} activeClassName="active"/>
+        <Route path="/publications" element={<Publication />} />
+        <Route path="/OtherPublication" element={<PublicationList />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/teaching" element={<Teaching />} /> */}
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+
   );
 }
 
